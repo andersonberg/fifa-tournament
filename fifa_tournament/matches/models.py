@@ -19,7 +19,7 @@ class Player(models.Model):
     '''
     name = models.TextField()
     team = models.ForeignKey(
-        'Team', related_name='players', on_delete=models.CASCADE)
+        'Team', related_name='players', on_delete=models.CASCADE, blank=True, null=True)
     match = models.ForeignKey('Match', blank=True, null=True)
 
     class Meta:
