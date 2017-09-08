@@ -35,6 +35,26 @@ export default class TeamsContainer extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     console.log(this.state);
+
+    const players = [
+      this.state.player1,
+      this.state.player2,
+      this.state.player3,
+      this.state.player4,
+      this.state.player5,
+      this.state.player6,
+      this.state.player7,
+      this.state.player8];
+
+    let submitPlayer;
+    for (submitPlayer in players) {
+      axios.post('http://localhost:8000/players/create/', { name: submitPlayer });
+    }
+
+    // axios.post('http://localhost:8000/tournaments/create/', { name: 'Torneio 1' })
+    // .then((response) => {
+    //   console.log(response);
+    // });
     // console.log(this.state.teams.map(team => (team.name + team.id)));
     // console.log(event.target.value);
     // this.setState({ value: event.target.value });
@@ -47,10 +67,11 @@ export default class TeamsContainer extends React.Component {
     if (target.type === 'checkbox') {
       const teamName = target.value;
       if (this.state.selectedTeams.indexOf(teamName) > -1) {
-        newTeamsList = this.state.selectedTeams.filter(team => team.name !== teamName);
+        newTeamsList = this.state.selectedTeams.filter(team => team !== teamName);
       } else {
         newTeamsList = [...this.state.selectedTeams, teamName];
       }
+      this.setState({ selectedTeams: newTeamsList });
     } else {
       const value = target.value;
       const name = target.name;
@@ -58,8 +79,6 @@ export default class TeamsContainer extends React.Component {
         [name]: value,
       });
     }
-
-    this.setState({ selectedTeams: newTeamsList });
   }
 
 
@@ -110,7 +129,7 @@ export default class TeamsContainer extends React.Component {
                   type="text"
                   name="player3"
                   id="player3"
-                  value={this.state.player1}
+                  value={this.state.player3}
                   onChange={this.handleInputChange}
                 />
               </div>
@@ -119,7 +138,7 @@ export default class TeamsContainer extends React.Component {
                   type="text"
                   name="player4"
                   id="player4"
-                  value={this.state.player1}
+                  value={this.state.player4}
                   onChange={this.handleInputChange}
                 />
               </div>
@@ -128,7 +147,7 @@ export default class TeamsContainer extends React.Component {
                   type="text"
                   name="player5"
                   id="player5"
-                  value={this.state.player1}
+                  value={this.state.player5}
                   onChange={this.handleInputChange}
                 />
               </div>
@@ -137,7 +156,7 @@ export default class TeamsContainer extends React.Component {
                   type="text"
                   name="player6"
                   id="player6"
-                  value={this.state.player1}
+                  value={this.state.player6}
                   onChange={this.handleInputChange}
                 />
               </div>
@@ -146,7 +165,7 @@ export default class TeamsContainer extends React.Component {
                   type="text"
                   name="player7"
                   id="player7"
-                  value={this.state.player1}
+                  value={this.state.player7}
                   onChange={this.handleInputChange}
                 />
               </div>
@@ -155,7 +174,7 @@ export default class TeamsContainer extends React.Component {
                   type="text"
                   name="player8"
                   id="player8"
-                  value={this.state.player1}
+                  value={this.state.player8}
                   onChange={this.handleInputChange}
                 />
               </div>
