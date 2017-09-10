@@ -92,13 +92,14 @@ export default class TeamsContainer extends React.Component {
     return (
       <div className="container">
         <form id="select_teams" onSubmit={this.handleSubmit}>
-          <div className="form-group row">
-            <div className="col-sm-6">
+          <div className="form-group">
+            <div className="form-check col-sm-6">
               <h2>Selecione os times</h2>
               {this.state.teams.map(team =>
                 (<div key={team.id} className="checkbox-group">
                   <label key={team.id} className="form-check-label" htmlFor={team.id}>
                     <input
+                      className="form-check-input"
                       type="checkbox"
                       name="team"
                       id={team.id}
@@ -110,10 +111,11 @@ export default class TeamsContainer extends React.Component {
                   </label></div>),
               )}
             </div>
-            <div className="checkbox-group col-sm-6">
+            <div className="form-group col-sm-6">
               <h2>Jogadores</h2>
-              <div>
+              <div className="form-group">
                 <input
+                  className="form-control"
                   type="text"
                   name="player1"
                   id="player1"
@@ -121,8 +123,9 @@ export default class TeamsContainer extends React.Component {
                   onChange={this.handleInputChange}
                 />
               </div>
-              <div>
+              <div className="form-group">
                 <input
+                  className="form-control"
                   type="text"
                   name="player2"
                   id="player2"
@@ -130,8 +133,9 @@ export default class TeamsContainer extends React.Component {
                   onChange={this.handleInputChange}
                 />
               </div>
-              <div>
+              <div className="form-group">
                 <input
+                  className="form-control"
                   type="text"
                   name="player3"
                   id="player3"
@@ -139,8 +143,9 @@ export default class TeamsContainer extends React.Component {
                   onChange={this.handleInputChange}
                 />
               </div>
-              <div>
+              <div className="form-group">
                 <input
+                  className="form-control"
                   type="text"
                   name="player4"
                   id="player4"
@@ -148,35 +153,39 @@ export default class TeamsContainer extends React.Component {
                   onChange={this.handleInputChange}
                 />
               </div>
-              <div>
+              <div className="form-group">
                 <input
                   type="text"
+                  className="form-control"
                   name="player5"
                   id="player5"
                   value={this.state.player5}
                   onChange={this.handleInputChange}
                 />
               </div>
-              <div>
+              <div className="form-group">
                 <input
                   type="text"
+                  className="form-control"
                   name="player6"
                   id="player6"
                   value={this.state.player6}
                   onChange={this.handleInputChange}
                 />
               </div>
-              <div>
+              <div className="form-group">
                 <input
                   type="text"
+                  className="form-control"
                   name="player7"
                   id="player7"
                   value={this.state.player7}
                   onChange={this.handleInputChange}
                 />
               </div>
-              <div>
+              <div className="form-group">
                 <input
+                  className="form-control"
                   type="text"
                   name="player8"
                   id="player8"
