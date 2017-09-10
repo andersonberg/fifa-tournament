@@ -30,19 +30,18 @@ class TournamentSerializer(serializers.ModelSerializer):
         fields = ('id', 'name')
 
     def sorteia_time(self, teams, players):
-        composition = {}
         for player in players:
             team = choice(teams)
-            composition[player] = team
+            player.team = team
+            player.save()
             teams.remove(team)
-
-        return composition
 
     def create(self, validated_data):
         all_players = list(Player.objects.all())
         num_of_matches = int(len(all_players) / 2)
+        teams = list(Team.objects.filter(selected=True))
         all_matches = []
-        import pdb ; pdb.set_trace()
+        self.sorteia_time(teams, all_players)
         tournament = Tournament(**validated_data)
         tournament.save()
         for i in range(num_of_matches):

@@ -51,10 +51,15 @@ export default class TeamsContainer extends React.Component {
       axios.post('http://localhost:8000/players/create/', { name: submitPlayer });
     }
 
-    // axios.post('http://localhost:8000/tournaments/create/', { name: 'Torneio 1' })
-    // .then((response) => {
-    //   console.log(response);
-    // });
+    for (const teamKey in this.state.selectedTeams) {
+      const currentTeam = this.state.selectedTeams[teamKey];
+      axios.put(`http://localhost:8000/teams/update/${currentTeam.id}/`, { name: currentTeam.name, selected: true });
+    }
+
+    axios.post('http://localhost:8000/tournaments/create/', { name: 'Torneio 2' })
+    .then((response) => {
+      console.log(response);
+    });
     // console.log(this.state.teams.map(team => (team.name + team.id)));
     // console.log(event.target.value);
     // this.setState({ value: event.target.value });
@@ -65,11 +70,12 @@ export default class TeamsContainer extends React.Component {
     let newTeamsList;
 
     if (target.type === 'checkbox') {
-      const teamName = target.value;
-      if (this.state.selectedTeams.indexOf(teamName) > -1) {
-        newTeamsList = this.state.selectedTeams.filter(team => team !== teamName);
+      const teamId = parseInt(target.id, 10);
+      const selectedTeam = this.state.teams.find(team => team.id === teamId);
+      if (this.state.selectedTeams.indexOf(selectedTeam) > -1) {
+        newTeamsList = this.state.selectedTeams.filter(team => team !== selectedTeam);
       } else {
-        newTeamsList = [...this.state.selectedTeams, teamName];
+        newTeamsList = [...this.state.selectedTeams, selectedTeam];
       }
       this.setState({ selectedTeams: newTeamsList });
     } else {
@@ -86,7 +92,7 @@ export default class TeamsContainer extends React.Component {
     return (
       <div className="container">
         <form id="select_teams" onSubmit={this.handleSubmit}>
-          <div className="row">
+          <div className="form-group row">
             <div className="col-sm-6">
               <h2>Selecione os times</h2>
               {this.state.teams.map(team =>
