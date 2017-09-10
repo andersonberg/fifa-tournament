@@ -62,3 +62,5 @@ class TournamentSerializer(serializers.ModelSerializer):
             first_player.save()
             second_player.match = match
             second_player.save()
+        
+        return tournament
