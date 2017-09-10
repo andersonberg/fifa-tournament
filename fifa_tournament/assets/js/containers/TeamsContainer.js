@@ -56,7 +56,7 @@ export default class TeamsContainer extends React.Component {
       axios.put(`http://localhost:8000/teams/update/${currentTeam.id}/`, { name: currentTeam.name, selected: true });
     }
 
-    axios.post('http://localhost:8000/tournaments/create/', { name: 'Torneio 2' })
+    axios.post('http://localhost:8000/tournaments/create/', { name: 'Torneio 1' })
     .then((response) => {
       console.log(response);
     });
@@ -105,6 +105,7 @@ export default class TeamsContainer extends React.Component {
                       id={team.id}
                       key={team.id}
                       value={team.name}
+                      defaultChecked={team.selected}
                       onChange={this.handleInputChange}
                     />
                     {team.name}
