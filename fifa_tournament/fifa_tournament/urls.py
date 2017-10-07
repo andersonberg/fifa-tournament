@@ -7,5 +7,7 @@ urlpatterns = [
     url(r'^djangojs/', include('djangojs.urls')),
     url(r'^', include('matches.urls')),
     url(r'^$', TemplateView.as_view(template_name='matches/teams.html'), name='home'),
+    # url(r'^partidas$', TemplateView.as_view(
+    #     template_name='matches/teams.html'), name='partidas'),
 
 ]

@@ -1,27 +1,7 @@
-[![License: MIT](https://img.shields.io/github/license/vintasoftware/django-react-boilerplate.svg)](LICENSE.txt)
-
-# Django React Boilerplate
+# Fifa Tournament
 
 ## About
-A [Django 1.11](https://www.djangoproject.com/) project boilerplate/template with lots of state of the art libraries and tools like:
-- [React](https://facebook.github.io/react/), for building interactive UIs
-- [django-js-reverse](https://github.com/ierror/django-js-reverse), for generating URLs on JS
-- [Bootstrap 4](https://v4-alpha.getbootstrap.com/), for responsive styling
-- [Webpack](https://webpack.js.org/), for bundling static assets
-- [Celery](http://www.celeryproject.org/), for background worker tasks
-- [WhiteNoise](http://whitenoise.evans.io/en/stable/) with [brotlipy](https://github.com/python-hyper/brotlipy), for efficient static files serving
-- [prospector](http://whitenoise.evans.io/en/stable/) and [ESLint](https://eslint.org/) with [pre-commit](http://pre-commit.com/) for automated quality assurance (does not replace proper testing!)
-
-For continuous integration, a [CircleCI](https://circleci.com/) configuration `circle.yml` is included.
-
-Also, includes a Heroku `app.json` and a working Django `production.py` settings, enabling easy deployments with ['Deploy to Heroku' button](https://devcenter.heroku.com/articles/heroku-button). Those Heroku plugins are included in `app.json`:
-- PostgreSQL, for DB
-- Redis, for Celery
-- Sendgrid, for e-mail sending
-- Papertrail, for logs and platform errors alerts (must set them manually)
-- Opbeat, for performance monitoring
-
-This is a good starting point for modern Python/JavaScript web projects.
+Fifa Tournament is a web application project to organize a tournament in the FIFA game.
 
 ## Project bootstrap [![CircleCI](https://circleci.com/gh/vintasoftware/django-react-boilerplate.svg?style=svg)](https://circleci.com/gh/vintasoftware/django-react-boilerplate)
 - [ ] Start your project using:
@@ -80,10 +60,6 @@ Add high level dependecies to `requirements-to-freeze.txt` and `pip freeze > req
 - Run `pre-commit install` to enable the hook into your git repo. The hook will run automatically for each commit.
 - Run `git commit -m "Your message" -n` to skip the hook if you need.
 
-## Contributing
-### How to test `django-admin startproject`
-If you made changes to this boilerplate and want to test them, commit your changes and use `git archive -o boilerplate.zip HEAD` to create the template zip. Then, do a `cd ..` and a `django-admin startproject theprojectname --extension py,yml,json --name Procfile,README.md,.env.example --template=django-react-boilerplate/boilerplate.zip` to test the project bootstrap.
-
 ### How to test Heroku deployment
 Push your changes to a branch and visit `https://dashboard.heroku.com/new?template=https://github.com/fill-org-or-user/fill-project-repo-name/tree/fill-branch` (replace all `fill-*`).
 
@@ -91,9 +67,3 @@ Push your changes to a branch and visit `https://dashboard.heroku.com/new?templa
 Read [this](https://devcenter.heroku.com/articles/heroku-button#adding-the-heroku-button).
 
 P.S. if you want to deploy in a different way please check the `app.json` file for what needs to be configured.
-
-## Commercial Support
-This project, as other Vinta open-source projects, is used in products of Vinta clients. We are always looking for exciting work, so if you need any commercial support, feel free to get in touch: contact@vinta.com.br
-
-Copyright (c) 2017 Vinta Serviços e Soluções Tecnológicas Ltda.
-[MIT License](LICENSE.txt)
