@@ -55,7 +55,7 @@ styles:
   mixins: true
 
   # Reset and dependencies
-  normalize: true
+  normalize: false
   print: true
 
   # Core CSS
